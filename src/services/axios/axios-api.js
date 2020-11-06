@@ -1,6 +1,5 @@
 import axios from 'axios'
-
-const baseClientURL = process.env.VUE_APP_API_CLIENT
+import { refreshTokenService } from '../auth'
 
 export default class Api {
   constructor (options = {}) {
@@ -42,9 +41,7 @@ export default class Api {
         }
 
         if (!this.refreshRequest) {
-          this.refreshRequest = this.client.post(`${baseClientURL}/auth/refresh`, {
-            refresh: this.refreshToken
-          })
+          this.refreshRequest = refreshTokenService({ refresh: this.refreshToken })
         }
         const { data } = await this.refreshRequest
         delete this.refreshRequest
