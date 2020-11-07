@@ -1,11 +1,13 @@
-export const SET_USER_UUID = (store, uuid) => {
+const SET_USER_UUID = (store, uuid) => {
   store.user_uuid = uuid
 }
 
-export const DELETE_USER_UUID = store => {
+const DELETE_USER_UUID = store => {
   store.user_uuid = null
 }
 
-export const SET_REFRESH_TOKEN = (state, refresh_token) => {
+const SET_REFRESH_TOKEN = (state, refresh_token) => {
   state.refresh_token = refresh_token
 }
+
+export { SET_USER_UUID, DELETE_USER_UUID, SET_REFRESH_TOKEN }
